@@ -1,0 +1,44 @@
+# With some help from: https://gist.github.com/dgerosa/2e1f47a39180f39bde848e38243efa94
+
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Edit here with the names of your latex file and directory (can use ".")
+      DIR: .
+      FILE: cv
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: cv
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: ${{ env.FILE }}
+          working_directory: ${{ env.DIR }}
+      - name: move
+        run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
+      - name: Upload pdf as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.FILE }}.pdf
+          path: ./github_artifacts
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          path: github_artifacts
+      - name: move
+        run: mkdir -p github_deploy && mv github_artifacts/*/* github_deploy
+      - name: deploy on orphan branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./github_deploy
+          publish_branch: build
+          force_orphan: true
