@@ -42,3 +42,4 @@ jobs:
           publish_dir: ./github_deploy
           publish_branch: build
           force_orphan: true
+          enable_jekyll: true
