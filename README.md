@@ -9,7 +9,7 @@ The template is designed to be clean with sections for
 - Support for including a list of publications read from a `*.bib` file
 - Header with Font Awesome icons
 
-## Usage
+## Quickstart
 - Fork this repo (you can use the `Use this template` button)
 - Modify the `cv.tex` file and push changes to your repo
 - The complied PDF will be available under the `build` branch
@@ -19,6 +19,10 @@ Optionally, while forking this repo, you can get a direct link to the generated 
 ![](https://i.imgur.com/lwATw1o.png)
 
 Now, once your site is published, your CV will be accessible at: https://username.github.io/autoCV/cv.pdf
+
+# Detailed Instructions..
+
+[.. are available here](https://github.com/jitinnair1/autoCV/wiki/How-to-use-autoCV:-Detailed-Instructions)
 
 ## Issues
 Please start a new discussion or issue if you encounter problems
