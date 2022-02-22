@@ -14,9 +14,9 @@ The template is designed to be clean with sections for
 - Modify the `cv.tex` file and push changes to your repo
 - The complied PDF will be available under the `build` branch
 
-Optionally, while forking this repo, if you choose to keep your copy public, the direct link to your CV will be: "https://raw.githubusercontent.com/<username>/<repo_name>/build/cv.pdf"
+Optionally, while forking this repo, if you choose to keep your copy public, the direct link to your CV will be: "https://raw.githubusercontent.com/username/repo_name/build/cv.pdf"
 
-You can use this link on your website, LinkedIn profile etc. and it will always point to an updated version of your CV
+You can use this link with Google Docs viewer in the follwing format and it will always point to an updated version of your CV: "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jitinnair1/autocv/build/cv.pdf"
 
 ## Issues
 Please start a new discussion or issue if you encounter problems
