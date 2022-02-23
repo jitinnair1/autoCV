@@ -20,7 +20,7 @@ Optionally, while forking this repo, you can get a direct link to the generated 
 
 Now, once your site is published, your CV will be accessible at: https://username.github.io/autoCV/cv.pdf
 
-# Detailed Instructions..
+## Detailed Instructions..
 
 [.. are available here](https://github.com/jitinnair1/autoCV/wiki/How-to-use-autoCV:-Detailed-Instructions)
 
