@@ -20,9 +20,16 @@ Optionally, while forking this repo, you can get a direct link to the generated 
 
 Now, once your site is published, your CV will be accessible at: https://username.github.io/autoCV/cv.pdf
 
+## This template on Overleaf
+
+<a href="https://www.overleaf.com/latex/templates/autocv/scfvqfpxncwb"><img alt="Overleaf" src="https://img.shields.io/badge/Overleaf-47A141.svg?style=for-the-badge&logo=Overleaf&logoColor=white"/></a>
+
+Also, if you have a premium subscription to Overleaf, you can use Overleaf's GitHub integration to push changes to your GitHub repo directly from Overleaf.
+
 ## Detailed Instructions..
 
 [.. are available here](https://github.com/jitinnair1/autoCV/wiki/How-to-use-autoCV:-Detailed-Instructions)
 
 ## Issues
 Please start a new discussion or issue if you encounter problems
+
