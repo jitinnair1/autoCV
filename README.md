@@ -33,3 +33,9 @@ Also, if you have a premium subscription to Overleaf, you can use Overleaf's Git
 ## Issues
 Please start a new discussion or issue if you encounter problems
 
+
+### Also, check out:
+
+- [gradfolio](https://github.com/jitinnair1/gradfolio) - a minimal, quick-setup template for a personal website/portfolio
+- [Tail](https://github.com/jitinnair1/tail) - a minimal, quick-setup template for a blog
+
