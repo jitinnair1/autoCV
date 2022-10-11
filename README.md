@@ -33,6 +33,8 @@ Also, if you have a premium subscription to Overleaf, you can use Overleaf's Git
 ## Issues
 Please start a new discussion or issue if you encounter problems
 
+PS: If you liked the template, do star :star: it! Thanks!
+
 
 ### Also, check out:
 
