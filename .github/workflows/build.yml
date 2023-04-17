@@ -44,7 +44,7 @@ jobs:
           force_orphan: true
           enable_jekyll: true
   copy-index-to-build:
-    needs: [build]
+    needs: [deploy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
