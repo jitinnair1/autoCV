@@ -54,4 +54,4 @@ jobs:
         uses: planetoftheweb/copy-to-branches@v1.3
         env:
           key: main
-          files: index.html README.md
+          files: index.html
