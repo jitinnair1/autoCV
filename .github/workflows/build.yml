@@ -43,3 +43,15 @@ jobs:
           publish_branch: build
           force_orphan: true
           enable_jekyll: true
+          
+  copy-to-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Copy To Branches Action
+        uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          files: index.html
