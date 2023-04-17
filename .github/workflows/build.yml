@@ -47,11 +47,11 @@ jobs:
     needs: [deploy]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Copy To Branches Action
-        uses: planetoftheweb/copy-to-branches@v1
+        uses: planetoftheweb/copy-to-branches@latest
         env:
           key: main
-          files: index.html
+          files: index.html README.md
