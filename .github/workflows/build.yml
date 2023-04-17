@@ -51,7 +51,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Copy To Branches Action
-        uses: planetoftheweb/copy-to-branches@latest
+        uses: planetoftheweb/copy-to-branches@1.3
         env:
           key: main
           files: index.html README.md
