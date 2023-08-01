@@ -97,6 +97,32 @@
 %debug page outer frames
 %\usepackage{showframe}
 
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
@@ -135,23 +161,16 @@ This CV is automatically generated and deployed using the \href{https://github.c
 %Experience
 \section{Work Experience}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Designation} & \hfill Jan 2021 - present \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
-\end{tabularx}
+\begin{jobshort}{Designation}{Jan 2021 - present}
+long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+\end{jobshort}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Designation} & \hfill Mar 2019 - Jan 2021 \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-\begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
-        \item[--] long long line of blah blah that will wrap when the table fills the column width
-        \item[--] again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-    \end{itemize}
-    \end{minipage}
-}
-\end{tabularx}
 
+\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
+\item long long line of blah blah that will wrap when the table fills the column width
+\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
+\end{joblong}
+  
 %Projects
 \section{Projects}
 
