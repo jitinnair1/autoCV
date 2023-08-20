@@ -14,11 +14,11 @@ The template is designed to be clean with sections for
 - Modify the `cv.tex` file and push changes to your repo
 - The complied PDF will be available under the `build` branch
 
-Optionally, while forking this repo, you can get a direct link to the generated PDF which you can use on your website, LinkedIn etc. that will always point to the latest version of your CV. For this, after editing your copy of `cv.tex` and pushing changes to your repo, under Settings -> Pages set your Github Pages source to the `build` directory
+You can get a direct link to the generated PDF which you can use on your website, LinkedIn etc. that will always point to the latest version of your CV. Once your site is published, your CV will be accessible at: `https://username.github.io/repo-name/`
+
+For this, after editing your copy of `cv.tex` and pushing changes to your repo, under Settings -> Pages set your Github Pages source to the `build` directory
 
 ![](https://i.imgur.com/lwATw1o.png)
-
-Now, once your site is published, your CV will be accessible at: `https://username.github.io/repo-name/`
 
 ## This template on Overleaf
 
