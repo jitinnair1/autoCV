@@ -18,7 +18,7 @@ Optionally, while forking this repo, you can get a direct link to the generated 
 
 ![](https://i.imgur.com/lwATw1o.png)
 
-Now, once your site is published, your CV will be accessible at: https://username.github.io/autoCV/cv.pdf
+Now, once your site is published, your CV will be accessible at: `https://username.github.io/repo-name/`
 
 ## This template on Overleaf
 
