@@ -26,6 +26,10 @@ Now, once your site is published, your CV will be accessible at: https://usernam
 
 Also, if you have a premium subscription to Overleaf, you can use Overleaf's GitHub integration to push changes to your GitHub repo directly from Overleaf.
 
+## Compiling the CV on your local computer
+- type `make` in the `autoCV` directory to produce file `cv.pdf`
+- you can optionally type `make clean` or `make distclean` to remove intermediate files
+
 ## Detailed Instructions..
 
 [.. are available here](https://github.com/jitinnair1/autoCV/wiki/How-to-use-autoCV:-Detailed-Instructions)
