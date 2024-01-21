@@ -1,217 +1,264 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
 
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
+\documentclass[letterpaper,11pt]{article}
 
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
 \usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
-
-%for social icons
 \usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
 
 
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
 
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
+\begin{center}
+    {\Huge \scshape Abdelrhman Sersawy} \\ \vspace{1pt}
+    Computer Science and Engineering Student \\ \vspace{1pt}    
+    
+    \small \raisebox{-0.1\height}\faPhone\ +20 1002317523
+    \small \raisebox{-0.1\height}\faMap\ Cairo, Egypt
+    ~ \href{mailto:abdelrhmansersawy@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{abdelrhmansersawy@gmail.com}} 
+    ~ \href{https://www.linkedin.com/in/sersawy/}{\raisebox{-0.2\height}\faLinkedin\ \underline{sersawy}}  
+    \newline
+    ~\href{https://github.com/Abdelrhmansersawy}{\raisebox{-0.2\height}\faGithub\ \underline{abdelrhmansersawy}}
+    \href{https://codeforces.com/profile/sersawy}{\raisebox{-0.2\height}\ \underline{codeforces.com/profile/sersawy}}
+    \vspace{-8pt}
+\end{center}
 
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
-
-%Interests/ Keywords/ Summary
+%-----------Summary-----------
 \section{Summary}
-This CV is automatically generated and deployed using the \href{https://github.com/jitinnair1/autoCV}{autoCV} template along with GitHub Actions such that a new version of the CV is compiled, published and ready for use when the cv.tex file is updated. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
-
-%Experience
-\section{Work Experience}
-
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
-\end{jobshort}
-
-
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-\end{joblong}
-  
-%Projects
-\section{Projects}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
+Junior Computer Science and Engineering Student with  experience in software development, competitive
+programming. Qualified for the Africa \& Arab Collegiate Problem-solving Contest (ACPC) and reached an Candidate Master rating on Codeforces. Has in-depth knowledge of data structures and algorithms. \vspace{-10pt}
+%-----------EDUCATION-----------
 \section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Faculty of Electronic Engineering in Menoufia University}{Oct 2021 -- Expected June 2026}
+      {Bachelor of Computer Science and Engineering, \textbf{GPA:} 3.25/4.0}{Menofia, Egypt}
+      \vspace{-6pt}
+      {\item {\textbf{Relevant Coursework}}}
+      \begin{multicols}{4}
+            \begin{itemize}[itemsep=-5pt, parsep=3pt]
+                \item\small Data Structures
+                \item Algorithms
+                \item Logic Desgin
+                \item OOP
+                \item Operating System
+                \item Probability, statistic
+            \end{itemize}
+        \end{multicols}
+        \vspace*{2.0\multicolsep}
+        \vspace{0pt}
 
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
+  \resumeSubHeadingListEnd
 
-2022 & Class 12th Some Board \hfill  (Grades) \\
+%------------Achievement----------
+\section{ACHIEVEMENTS}
+     \vspace{-2pt}
+        \begin{itemize}
+            \item {Ranked \textbf{26th} (out of +7000 teams) in IEEEextreme 17.0.} {\hspace{194pt} \textbf{Oct 2023}}
+            \vspace{-23pt}
+            \item {Rated \textbf{ Candidate Master(CM)} Codeforces$, $ \emph{} {{\href{https://codeforces.com/profile/Sersawy}{usernanme:\color{blue} {(Sersawy)}}}}. {\hspace{131pt} \textbf{Nov 2023}}}
+            \vspace{-23pt}
+            \item {Qualified to \textbf{the Africa and Arab Collegiate Programming Championship (ACPC) 2023}.} {\hspace{-7.3pt} \textbf{Aug 2023}}
+            \vspace{-23pt}
+            \item {Ranked \textbf{20th} (out of +200 teams) at the Egyptian Collegiate Programming Contest 2023.} {\hspace{35.7pt} \textbf{Aug 2023}}
+            \vspace{-23pt}
+            \item {Ranked \textbf{1th} (out of +100 teams) at Menofia University Collegiate Programming Contest 2023.} {\hspace{13.7pt} \textbf{Aug 2023}}
+            \vspace{-23pt}
+             \item {Solved\textbf{+2000} Algorithmic problem.}
+            \vspace{0pt}
+        \end{itemize}
+    \vspace{-8pt}       
+      % \resumeProjectHeading
+      %     {\textbf{ .} \emph{}}{Aug 2023}
+      %     \vspace{-27pt}
+ 
+      % \resumeProjectHeading
+      %     {\textbf{Ranked 20th}  \emph{}}{Aug 2023}
 
-2021 & Class 10th Some Board \hfill  (Grades) \\
-\end{tabularx}
+      %     \vspace{-27pt}
+      
+      %  \resumeProjectHeading
+      %     {\textbf{Ranked 1st in Menofia University Collegiate Programming Contest in 2023 out of 100 teams.} \emph{}}{Aug 2023}
+      %     \vspace{-27pt}
 
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
+         
+        
+      %   \resumeProjectHeading
+      %     {\textbf{} \emph{} }
 
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
-\end{tabularx}
+        \vspace{-13pt}
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+     
 
-\vfill
-\center{\footnotesize Last updated: \today}
+          \resumeProjectHeading
+          {\textbf{\href{https://github.com/Abdelrhmansersawy/TextEditor/tree/main}{\color{blue} {Text Editor}}} $|$ \emph{Java, Java Swing}}{}
+           \vspace{-13pt}
+               
+           {Simple Text Editor with cool features.}
+          \resumeItemListStart
+            \resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
+            \resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
+            \resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          
+           \resumeProjectHeading
+              {\textbf{\href{https://github.com/Abdelrhmansersawy/Ask.me}{\color{blue} {Ask Me}}} $|$ \emph{C++}}{}
+               \vspace{-13pt}
+               
+              {A platform where users can ask and answer questions.}
+          \resumeItemListStart
+            \resumeItem{\textbf{Built an Ask.fm clone using C++, data structures, and OOP concepts. }In this system, users can ask and answer questions. The system supports threaded discussions, and users can delete threads, including the questions within them.}
+            \resumeItem{\textbf{Implemented a file-based system }that stores user data, questions, and answers\textbf{ using hashing.}}
+            \resumeItem{Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.}
+            \resumeItem{\textbf{Implemented real-time updates} where when a user sends a question, it becomes immediately visible to others \textbf{using parallel sessions.}}
+          \resumeItemListEnd
+      
+         
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C++, Java.} \\
+     \textbf{Developer Tools}{: Linux, Git, Github, VS Code.} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+
+%-----------INVOLVEMENT---------------
+\section{Extracurricular Activities / Volunteering}
+    \resumeSubHeadingListStart
+        \resumeSubheading{ACM ICPC Menofia Community}{Aug 2023 -- Present}{Development Team Leader}{Menofia University}
+
+            \resumeItemListStart
+                \resumeItem{I am managing problem-solving training at my university.}
+                \resumeItem{Trained on-campus freshmen to enhance their skills in programming and algorithmic thinking.}
+                \resumeItem{Provided mentorship and guidance for students participating in the Egyptian Collegiate Programming Contest (ECPC).}
+            \resumeItemListEnd
+        
+    \resumeSubHeadingListEnd
+
 
 \end{document}
