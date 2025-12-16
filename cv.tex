@@ -1,104 +1,56 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
+%   The MIT License (MIT)
 %
-%	Copyright (c) 2021 Jitin Nair
+%   Copyright (c) 2021 Jitin Nair
 %
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
+%   Permission is hereby granted, free of charge, to any person obtaining a copy
+%   of this software and associated documentation files (the "Software"), to deal
+%   in the Software without restriction, including without limitation the rights
+%   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%   copies of the Software, and to permit persons to whom the Software is
+%   furnished to do so, subject to the following conditions:
+%   
+%   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%   THE SOFTWARE.
+%   
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
 
-% article class because we want to fully customize the page and not use a cv template
 \documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES
 %----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
 
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
+\usepackage{url}
+\usepackage{parskip} 
+
+% Other packages for formatting
+\usepackage{color}
+\usepackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
-
-%tabularx environment
 \usepackage{tabularx}
-
-%for lists within experience section
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
 \usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
-
-%for social icons
 \usepackage{fontawesome5}
+\usepackage[unicode]{hyperref}
+\usepackage{multirow}
+\usepackage{supertabular}
+\usepackage{biblatex}
 
-%debug page outer frames
-%\usepackage{showframe}
+% Hyperlink setup
+\hypersetup{colorlinks=true,urlcolor=blue}
 
-
-% job listing environments
+% Custom job listing environments
 \newenvironment{jobshort}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
@@ -114,102 +66,138 @@
     \textbf{#1} & \hfill &  #2 \\[3.75pt]
     \end{tabularx}
     \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
     }
     {
     \end{itemize}
     \end{minipage}    
     }
 
-
-
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
+
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
-
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
-
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
+% Title Section
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
+\huge{Favour Abayomi-Dada} \\[7.5pt]
+\href{https://github.com/noidontknow}{\raisebox{-0.05\height}\faGithub\ noidontknow} \ $|$ \ 
+\href{https://linkedin.com/in/favourabayomi-dada}{\raisebox{-0.05\height}\faLinkedin\favourabayomi-dada} \ $|$ \ 
+%\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \% 
+\href{mailto:abdaferfav@tuta.io}{\raisebox{-0.05\height}\faEnvelope \ abdaferfav@tuta.io} \ $|$ \ 
+\href{tel:+447476567918}{\raisebox{-0.05\height}\faMobile \ +74.76.567.918} \\
 \end{tabularx}
 
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
+% Education Section
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2022 - 2023 & Foundation Studies in Computer Systems Engineering, \textbf{Royal Holloway University of London} \\[3pt]
+2015 - 2022 & A-Level in Physics, Mathematics, and Computer Science, \textbf{Shenley Brook End School, Milton Keynes} \\[3pt]
+2015 - 2022 & GCSEs: English (7), Mathematics (8), Physics (8), Biology (7), Chemistry (7), Computer Science (6), English Literature (5), German (4), History (4), \textbf{Shenley Brook End School, Milton Keynes} \\[3pt]
+2015 - 2022 & Cambridge Diploma in Sports Studies (Merit), \textbf{Shenley Brook End School, Milton Keynes} \\
+\end{tabularx}
 
-%Interests/ Keywords/ Summary
-\section{Summary}
-This CV can also be automatically compiled and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
-
-%Experience
-\section{Work Experience}
-
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+% Professional Experience Section
+\section{Professional Experience}
+\begin{jobshort}{GXO}{August 2023 - October 2024}
+Contributed to logistics operations and testing support, including warehouse coordination, packing, and quality assurance of digital equipment.
 \end{jobshort}
 
+\begin{jobshort}{Wittan}{July - August 2024}
+Gained hands-on experience in metal production logistics, focusing on materials handling, documentation, and safety standards within an industrial setting.
+\end{jobshort}
 
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-\end{joblong}
-  
-%Projects
-\section{Projects}
+\begin{jobshort}{Partica}{October - November 2022}
+Worked in retail and floor management, including stock control, communication, product display management, and troubleshooting point-of-sale systems.
+\end{jobshort}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\begin{jobshort}{The Hoohing Supermarket}{August - September 2022}
+Assisted with stock verification, rotation, and coordination with floor managers to ensure product accuracy and freshness.
+\end{jobshort}
+
+\begin{jobshort}{Primark}{June - August 2022}
+Supported backroom layout organization, stock replenishment, and visual merchandising under high-traffic conditions.
+\end{jobshort}
+
+\begin{jobshort}{Pizza Express}{January - May 2022}
+Provided customer service and floor coordination, gaining exposure to both front- and back-of-house operations and order management.
+\end{jobshort}
+
+\begin{jobshort}{DeVere Beaumont Estate}{February - July 2023}
+Contributed to hospitality operations, providing service for large-scale event catering and maintaining professional conduct.
+\end{jobshort}
+
+% Volunteering and Work Experience Section
+\section{Volunteering and Work Experience}
+\begin{jobshort}{Open University}{March - April 2019}
+Volunteered for device setup, spreadsheet maintenance, and system support during an outreach initiative, gaining familiarity with IT infrastructure and digital transformation.
+\end{jobshort}
+
+% Project Record Section
+\section{Project Record}
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Task Management Application} & \hfill \textit{React, Flask, PostgreSQL} \\[3pt]
+Developed an agile task management system with live data updates. & \\[3pt]
+\textbf{Inventory Management System} & \hfill \textit{C++} \\[3pt]
+Designed for CRUD operations and stability analysis. & \\[3pt]
+\textbf{Market Research Web Scraper} & \hfill \textit{Python, Selenium, BeautifulSoup} \\[3pt]
+Developed for competitive data extraction and parsing. & \\[3pt]
+\textbf{Unix File Traversal Tool} & \hfill \textit{Bash} \\[3pt]
+Created for efficient file system navigation. & \\[3pt]
+\textbf{E-Commerce Platform} & \hfill \textit{Docker, Evershop API} \\[3pt]
+Dockerized an e-commerce platform for better deployment. & \\[3pt]
+\textbf{Stall Management Application} & \hfill \textit{Spring Boot} \\[3pt]
+Developed for managing event stall logistics. & \\[3pt]
+\textbf{8-Bit Emulator} & \hfill \textit{C++} \\[3pt]
+Implemented an emulator for simulating classic gaming systems. & \\[3pt]
+\textbf{Java Interactive Calendar} & \hfill \textit{Java} \\[3pt]
+Created a dynamic, interactive calendar application. & \\
 \end{tabularx}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
+% Courses/Extracurricular Activities Section
+\section{Courses/Extracurricular Activities}
+\begin{itemize}[left=0em]
+    \item CS50
+    \item Data Science course NEPTL
+    \item International Law 1
+    \item Foundations of Aviation
+    \item Circuit Engineering/Tinkering
+    \item CBT Fundamentals
+    \item Desecelation Training, First Aid, Firesafety Licensing, Food Safety
+    \item Khan Academy Physics, Biology, and Chemistry
+    \item Biological Waste Management
+    \item Cold Temperatures
+    \item Manual Handling
+    \item Interest in Clothes
+    \item Interest in Tafseer
+\end{itemize}
 
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
-
-2022 & Class 12th Some Board \hfill  (Grades) \\
-
-2021 & Class 10th Some Board \hfill  (Grades) \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
+% Technical Competencies Section
+\section{Technical Competencies}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+\textbf{Programming} & Java, Python, C, C++, SQL, Bash, MATLAB, R \\[3pt]
+\textbf{Frameworks} & React, Flask, Spring Boot, BeautifulSoup, Selenium, TensorFlow, PyTorch \\[3pt]
+\textbf{Data Science} & Pandas, NumPy, Matplotlib, Seaborn, SciPy, Scikit-learn, Statistical Analysis \\[3pt]
+\textbf{Software} & Docker, PostgreSQL, Git, UNIX/Linux, MATLAB, Jupyter Notebooks, LaTeX \\[3pt]
+\textbf{Machine Learning} & Supervised/Unsupervised Learning, Neural Networks, Data Classification, Regression Analysis \\[3pt]
+\textbf{Research} & Scientific Research Methodology, Data Collection & Analysis, Hypothesis Testing \\[3pt]
+\textbf{Environmental Sciences} & Environmental Impact Assessment, Sustainability Analysis, Climate Modeling \\[3pt]
+\textbf{Other} & Microsoft Office Suite, Database Management, Cloud Computing, Big Data, API Integration \\[3pt]
 \end{tabularx}
+
+% Languages Section
+\section{Languages}
+\begin{itemize}[left=0em]
+    \item English (Fluent)
+    \item German (Intermediate)
+    \item Yoruba (Native)
+    \item Arabic (Beginner)
+\end{itemize}
+
+% Soft Skills Section
+\section{Soft Skills}
+Critical Thinking, Problem Solving, Research Methodology, Data Interpretation, Communication, Time Management, Leadership, Teamwork, Adaptability, Analytical Skills, Negotiation
 
 \vfill
 \center{\footnotesize Last updated: \today}
