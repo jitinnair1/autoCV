@@ -205,50 +205,40 @@ long long line of blah blah that will wrap when the table fills the column width
 
 
 \begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-    \item long long line of blah blah that will wrap when the table fills the column width
-    \item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
+\item long long line of blah blah that will wrap when the table fills the column width
+\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
 \end{joblong}
 
 %Projects
 \section{Projects}
 
+%TODO: Clean up the Projects formatting to be clearer? And maybe also abstract this into environments?
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
 \textbf{Project Style 1} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
 \multicolumn{2}{@{}p{\linewidth}@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{ @{}X r@{} }
-
-    % The Project Name is the Link
-    \href{https://github.com/path/to/repo}{\textbf{Project Style 2}} &
-    % Tags flush right
-    \cvtag{C++} \cvtag{CUDA} \cvtag{\faGithub\ 120 Stars} \cvtag{\faPython\ Python} \\[3.75pt]
-
-    % Description spans both
-    \multicolumn{2}{@{}p{\linewidth}@{}}{%
-        \begin{minipage}[t]{\linewidth}
-        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-
-    \item long long line of blah blah that will wrap when the table fills the column width
-    \item long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
-
-    \end{itemize}
+  \href{https://github.com/path/to/repo}{\textbf{Project Style 2}} &\cvtag{C++} \cvtag{CUDA} \cvtag{\faGithub\ 120 Stars} \cvtag{\faPython\ Python} \\[3.75pt]
+  \multicolumn{2}{@{}p{\linewidth}@{}}{%
+    \begin{minipage}[t]{\linewidth}
+      \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+        \item long long line of blah blah that will wrap when the table fills the column width
+        \item long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+      \end{itemize}
     \end{minipage}
-
     } \\
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{@{}l r@{} }
-    \textbf{Project Style 3} & \href{https://link.com}{Link to Demo} \\[3.75pt]
+\textbf{Project Style 3} & \href{https://link.com}{Link to Demo} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{%
+long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width} \\[3.75pt]
 
-    % Description first
-    \multicolumn{2}{@{}X@{}}{%
-         long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width} \\[3.75pt]
-
-    % Tags at the bottom, slightly offset or lighter
-    \multicolumn{2}{@{}X@{}}{%
-        \footnotesize \textit{Stack:} \cvtag{Python} \cvtag{NumPy} \cvtag{Matplotlib}
-    } \\
+% Tags at the bottom, slightly offset or lighter
+\multicolumn{2}{@{}X@{}}{%
+\footnotesize \textit{Stack:} \cvtag{Python} \cvtag{NumPy} \cvtag{Matplotlib}
+} \\
 \end{tabularx}
 
 
