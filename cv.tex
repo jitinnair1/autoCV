@@ -9,7 +9,7 @@
 %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %	copies of the Software, and to permit persons to whom the Software is
 %	furnished to do so, subject to the following conditions:
-%	
+%
 %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,7 +17,7 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
+%
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -48,12 +48,12 @@
 %	PACKAGES
 %----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip} 	
+\usepackage{parskip}
 
 %other packages for formatting
 \RequirePackage{color}
 \RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
 
 %tabularx environment
@@ -63,7 +63,7 @@
 \usepackage{enumitem}
 
 % centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 %to prevent spillover of tabular into next pages
 \usepackage{supertabular}
@@ -72,11 +72,11 @@
 \setlength{\fullcollw}{0.47\textwidth}
 
 %custom \section
-\usepackage{titlesec}				
+\usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{multirow}
 
-%CV Sections inspired by: 
+%CV Sections inspired by:
 %http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{10pt}{10pt}
@@ -118,9 +118,47 @@
     }
     {
     \end{itemize}
-    \end{minipage}    
+    \end{minipage}
     }
 
+% Required packages
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Define a color for the tag background
+\definecolor{tagbg}{RGB}{230, 230, 240}
+
+% The tag command
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline=(temp.base)]
+    \node[
+      anchor=base,
+      draw=gray!20,      % Border color
+      fill=tagbg,        % Background color
+      rounded corners=2pt,
+      inner xsep=3pt,    % Horizontal padding
+      inner ysep=1pt,    % Vertical padding
+      minimum height=1.2em,
+      text depth=0pt,
+      alias=temp
+    ] {\scriptsize #1};% % Font size
+}
+
+% \newcommand{\cvtag}[1]{%
+%   \tikz[baseline=(temp.base)]
+%     \node[
+%       anchor=base,
+%       draw=gray!20,
+%       fill=tagbg,
+%       rounded corners=2pt,
+%       inner xsep=3pt,
+%       inner ysep=1pt,    % Reduced padding
+%       line width=0.5pt,  % Thinner border
+%       text height=1.5ex, % Enforce consistent height
+%       text depth=0.25ex, % Enforce consistent depth
+%       alias=temp
+%     ] {\scriptsize #1};%
+% }
 
 
 %----------------------------------------------------------------------------------------
@@ -129,7 +167,7 @@
 \begin{document}
 
 % non-numbered pages
-\pagestyle{empty} 
+\pagestyle{empty}
 
 %----------------------------------------------------------------------------------------
 %	TITLE
@@ -142,11 +180,11 @@
 % \end{tabularx}
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
+\Huge{Test} \\[7.5pt]
+\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \
+\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \
+\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \
+\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \
 \href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
 \end{tabularx}
 
@@ -156,7 +194,7 @@
 
 %Interests/ Keywords/ Summary
 \section{Summary}
-This CV can also be automatically compiled and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
 
 %Experience
 \section{Work Experience}
@@ -167,26 +205,61 @@ long long line of blah blah that will wrap when the table fills the column width
 
 
 \begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
+    \item long long line of blah blah that will wrap when the table fills the column width
+    \item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
 \end{joblong}
-  
+
 %Projects
 \section{Projects}
 
 \begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+\textbf{Project Style 1} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
+\multicolumn{2}{@{}p{\linewidth}@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
 \end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}X r@{} }
+
+    % The Project Name is the Link
+    \href{https://github.com/path/to/repo}{\textbf{Project Style 2}} &
+    % Tags flush right
+    \cvtag{C++} \cvtag{CUDA} \cvtag{\faGithub\ 120 Stars} \cvtag{\faPython\ Python} \\[3.75pt]
+
+    % Description spans both
+    \multicolumn{2}{@{}p{\linewidth}@{}}{%
+        \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+
+    \item long long line of blah blah that will wrap when the table fills the column width
+    \item long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+
+    \end{itemize}
+    \end{minipage}
+
+    } \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{}l r@{} }
+    \textbf{Project Style 3} & \href{https://link.com}{Link to Demo} \\[3.75pt]
+
+    % Description first
+    \multicolumn{2}{@{}X@{}}{%
+         long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width} \\[3.75pt]
+
+    % Tags at the bottom, slightly offset or lighter
+    \multicolumn{2}{@{}X@{}}{%
+        \footnotesize \textit{Stack:} \cvtag{Python} \cvtag{NumPy} \cvtag{Matplotlib}
+    } \\
+\end{tabularx}
+
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
 \section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
+\begin{tabularx}{\linewidth}{@{}l X@{}}
 2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
 
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
+2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\
 
 2022 & Class 12th Some Board \hfill  (Grades) \\
 
@@ -208,7 +281,7 @@ long long line of blah blah that will wrap when the table fills the column width
 \section{Skills}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
 Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\
 \end{tabularx}
 
 \vfill
