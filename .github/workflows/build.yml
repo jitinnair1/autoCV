@@ -1,7 +1,10 @@
 # With some help from: https://gist.github.com/dgerosa/2e1f47a39180f39bde848e38243efa94
 
 name: build
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
